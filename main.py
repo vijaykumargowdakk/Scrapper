@@ -7,16 +7,6 @@ import re
 
 app = FastAPI()
 
-# --- THE FIX: ADD CORS MIDDLEWARE ---
-# This tells the browser that your React frontend is allowed to call this API
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Allows requests from any origin (localhost, vercel, etc.)
-    allow_credentials=True,
-    allow_methods=["*"],  # Allows POST, OPTIONS, etc.
-    allow_headers=["*"],
-)
-
 # Define the expected JSON payload
 class VehicleRequest(BaseModel):
     url: str
